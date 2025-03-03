@@ -14,10 +14,10 @@ $("#carousel-call").load("/carousel.html", function() {
     $('#carousel-chevron-next').on('click', function() {
         // console.log('Nav item clicked in header!');
         moveSlide(1);
-          console.log("Current slide index: " + currentSlideIndex);
-          const prev = document.getElementById('carousel-chevron-prev');
-          console.log("prev has been pressed.")
-          prev.classList.toggle('closed');
+        console.log("Current slide index: " + currentSlideIndex);
+        const prev = document.getElementById('carousel-chevron-prev');
+        console.log("prev has been pressed.")
+        prev.classList.toggle('closed');
     });
 
     $('#carousel-chevron-prev').on('click', function() {
@@ -70,7 +70,6 @@ $("#carousel-call").load("/carousel.html", function() {
         console.log("This is the direction: " + direction)
         console.log("This is slide index we are moving to: " + currentSlideIndex);
         updateCarousel();
-        resetAutoSlide();
     }
 
     // When provided with an index, changes to slide with matching index value
@@ -96,7 +95,8 @@ $("#carousel-call").load("/carousel.html", function() {
         console.log("Button we are changing to: " + 'menu-btn-' + currentSlideIndex)
         let currentButton = document.getElementById('menu-btn-' + (currentSlideIndex));
         console.log(currentButton);
-        currentButton.classList.add('menu-btn-selected');
+        // Introduced bug: incorrect class name, causing the button to not be selected properly
+        currentButton.classList.add('menu-btn-selected-wrong');
     }
 
 });
